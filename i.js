@@ -214,7 +214,7 @@ function otsu(imageData) {
     }
   }
 
-  return tmax -10;
+  return tmax ;
 }
 
 function thresholdImage(imageData, tmax) {
