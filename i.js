@@ -262,7 +262,7 @@ fileInput.addEventListener("change", function (event) {
 
       let alpha_value = 1.1;
       let beta_value = 15;
-      let adjust =adjustContrast(enhance, alpha_value, beta_value);
+      let adjust =adjustContrast(gaussi, alpha_value, beta_value);
       let ou = otsu(adjust);
       let th = thresholdImage(adjust, ou);
 
