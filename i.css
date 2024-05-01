@@ -9,12 +9,22 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #b9b9b966;
+  background: #ffefba; 
+  background: -webkit-linear-gradient(
+    to right,
+    #ffffff,
+    #ffefba
+  ); 
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #fce28f
+  ); 
 }
 
 .navbar {
-  background-color: #8280809f;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #02020249;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.171);
   position: relative;
   z-index: 1000;
 }
@@ -69,7 +79,6 @@ body {
   display: flex;
 }
 
-/* Vars and Reset */
 :root {
   --theme: #454cad;
   --dark-text: #5f6982;
@@ -81,8 +90,19 @@ body {
 }
 
 .upload {
+  background: #ffefba; 
+  background: -webkit-linear-gradient(
+    to right,
+    #ffffff,
+    #ffefba
+  ); 
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #fce28f
+  ); 
+
   padding: 3rem;
-  background: #f8f8f8;
   height: 100%;
   text-align: center;
   padding-bottom: 300px;
@@ -103,7 +123,7 @@ h2 {
   font-size: 18px;
 }
 
-/* Upload Demo */
+
 .uploader {
   padding: 20px;
   display: block;
@@ -204,13 +224,12 @@ h2 {
   height: 8px;
   border: 0;
   border-radius: 4px;
-  background-color: #eee;
   overflow: hidden;
 }
 
 .uploader .progress[value]::-webkit-progress-bar {
   border-radius: 4px;
-  background-color: #eee;
+  background-color: #861212;
 }
 
 .uploader input[type="file"] {
@@ -240,8 +259,17 @@ h2 {
   color: #fff;
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
-  background: #a6451e;
-  border-color: #a6451e;
+  background: #ff8008; 
+  background: -webkit-linear-gradient(
+    to right,
+    #ffc837,
+    #ff8008
+  ); 
+  background: linear-gradient(
+    to right,
+    #ffc837,
+    #ff8008
+  );
   cursor: pointer;
 }
 
@@ -273,11 +301,11 @@ h2 {
 
 .gallery {
   --g: 6px;
-  /* the gap */
+ 
 
   display: grid;
   width: 500px;
-  /* the size */
+  
   aspect-ratio: 1;
   grid: auto-flow 1fr / repeat(3, 1fr);
   gap: var(--g);
@@ -311,20 +339,24 @@ h2 {
 
 .gallery img:nth-child(2) {
   grid-area: 1/2 / span 2 / span 2;
-  clip-path: polygon(0 0,
-      100% 0,
-      100% 100%,
-      calc(50% + var(--g) / 4) 100%,
-      0 calc(50% - var(--g) / 4));
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    calc(50% + var(--g) / 4) 100%,
+    0 calc(50% - var(--g) / 4)
+  );
 }
 
 .gallery img:nth-child(3) {
   grid-area: 2/1 / span 2 / span 2;
-  clip-path: polygon(0 0,
-      calc(50% - var(--g) / 4) 0,
-      100% calc(50% + var(--g) / 4),
-      100% 100%,
-      0 100%);
+  clip-path: polygon(
+    0 0,
+    calc(50% - var(--g) / 4) 0,
+    100% calc(50% + var(--g) / 4),
+    100% 100%,
+    0 100%
+  );
 }
 
 footer {
@@ -392,7 +424,7 @@ main {
   height: 100%;
 }
 
-.slider:focus-visible~.slider-button {
+.slider:focus-visible ~ .slider-button {
   outline: 5px solid black;
   outline-offset: 3px;
 }
