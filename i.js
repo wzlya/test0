@@ -1,4 +1,3 @@
-
 const mobileMenu = document.getElementById("mobile-menu");
 const navMenu = document.getElementById("nav-menu");
 
@@ -6,40 +5,37 @@ mobileMenu.addEventListener("click", function () {
   navMenu.classList.toggle("active");
 });
 const container = document.querySelector(".containerimg");
+container.style.setProperty("--position", `100%`);
 document.querySelector(".slider").addEventListener("input", (e) => {
   container.style.setProperty("--position", `${e.target.value}%`);
 });
 
+const images = document.querySelectorAll(".gallery img");
 
-
-const images = document.querySelectorAll('.gallery img');
-
-images.forEach(image => {
-  image.addEventListener('mouseover', () => {
-    const originalSrc = image.getAttribute('data-original-src');
-    image.src = originalSrc.replace('.jpeg', 'e.jpeg').replace('.jpg', 'e.jpg');
+images.forEach((image) => {
+  image.addEventListener("mouseover", () => {
+    const originalSrc = image.getAttribute("data-original-src");
+    image.src = originalSrc.replace(".jpeg", "e.jpeg").replace(".jpg", "e.jpg");
   });
 
-  image.addEventListener('mouseout', () => {
-    image.src = image.getAttribute('data-original-src');
+  image.addEventListener("mouseout", () => {
+    image.src = image.getAttribute("data-original-src");
   });
 });
-
 
 // دالة لتحويل الصورة إلى رمادي
 function rgbToGray(imageData) {
   const data = imageData.data;
 
   for (let i = 0; i < data.length; i += 4) {
-      const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
-      data[i] = avg;     
-      data[i + 1] = avg;  
-      data[i + 2] = avg;   
+    const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+    data[i] = avg;
+    data[i + 1] = avg;
+    data[i + 2] = avg;
   }
 
   return imageData;
 }
-
 
 function enhanceImageResolution(imageData) {
   let imageWidth = imageData.width;
@@ -47,49 +43,57 @@ function enhanceImageResolution(imageData) {
   let pixels = imageData.data;
 
   let kernel = [
-      [0, -1, 0],
-      [-1, 5, -1],
-      [0, -1, 0]
+    [0, -1, 0],
+    [-1, 5, -1],
+    [0, -1, 0],
   ];
 
   let sharpenedPixels = [];
 
   for (let y = 0; y < imageHeight; y++) {
-      for (let x = 0; x < imageWidth; x++) {
-          let sumR = 0, sumG = 0, sumB = 0;
+    for (let x = 0; x < imageWidth; x++) {
+      let sumR = 0,
+        sumG = 0,
+        sumB = 0;
 
-          for (let ky = -1; ky <= 1; ky++) {
-              for (let kx = -1; kx <= 1; kx++) {
-                  let pixelX = x + kx;
-                  let pixelY = y + ky;
+      for (let ky = -1; ky <= 1; ky++) {
+        for (let kx = -1; kx <= 1; kx++) {
+          let pixelX = x + kx;
+          let pixelY = y + ky;
 
-                  if (pixelX >= 0 && pixelX < imageWidth && pixelY >= 0 && pixelY < imageHeight) {
-                      let index = (pixelY * imageWidth + pixelX) * 4;
-                      let kernelValue = kernel[ky + 1][kx + 1];
+          if (
+            pixelX >= 0 &&
+            pixelX < imageWidth &&
+            pixelY >= 0 &&
+            pixelY < imageHeight
+          ) {
+            let index = (pixelY * imageWidth + pixelX) * 4;
+            let kernelValue = kernel[ky + 1][kx + 1];
 
-                      sumR += pixels[index] * kernelValue;
-                      sumG += pixels[index + 1] * kernelValue;
-                      sumB += pixels[index + 2] * kernelValue;
-                  }
-              }
+            sumR += pixels[index] * kernelValue;
+            sumG += pixels[index + 1] * kernelValue;
+            sumB += pixels[index + 2] * kernelValue;
           }
-
-          let index = (y * imageWidth + x) * 4;
-          sharpenedPixels[index] = Math.min(Math.max(sumR, 0), 255);
-          sharpenedPixels[index + 1] = Math.min(Math.max(sumG, 0), 255);
-          sharpenedPixels[index + 2] = Math.min(Math.max(sumB, 0), 255);
-          sharpenedPixels[index + 3] = pixels[index + 3]; 
+        }
       }
+
+      let index = (y * imageWidth + x) * 4;
+      sharpenedPixels[index] = Math.min(Math.max(sumR, 0), 255);
+      sharpenedPixels[index + 1] = Math.min(Math.max(sumG, 0), 255);
+      sharpenedPixels[index + 2] = Math.min(Math.max(sumB, 0), 255);
+      sharpenedPixels[index + 3] = pixels[index + 3];
+    }
   }
 
-  let enhancedImageData = new ImageData(new Uint8ClampedArray(sharpenedPixels), imageWidth, imageHeight);
+  let enhancedImageData = new ImageData(
+    new Uint8ClampedArray(sharpenedPixels),
+    imageWidth,
+    imageHeight,
+  );
   return enhancedImageData;
 }
 
-
-
 function gaussianFilter(imageData, kernelSize = 3) {
- 
   const width = imageData.width;
   const height = imageData.height;
   const data = imageData.data;
@@ -214,7 +218,7 @@ function otsu(imageData) {
     }
   }
 
-  return tmax ;
+  return tmax;
 }
 
 function thresholdImage(imageData, tmax) {
@@ -228,20 +232,23 @@ function thresholdImage(imageData, tmax) {
     binaryImageData.data[i] = binaryValue;
     binaryImageData.data[i + 1] = binaryValue;
     binaryImageData.data[i + 2] = binaryValue;
-    binaryImageData.data[i + 3] = 255; 
+    binaryImageData.data[i + 3] = 255;
   }
 
   return binaryImageData;
 }
-
 
 function displayImage(imageUrl) {
   let image = document.getElementById("image-after");
   image.src = imageUrl;
 }
 
-let fileInput = document.getElementById("file-upload");
-fileInput.addEventListener("change", function (event) {
+const fileInput = document.getElementById("file-upload");
+fileInput.addEventListener("change", processImage);
+const imageInput = document.getElementById("image-capture");
+imageInput.addEventListener("change", processImage);
+
+function processImage(event) {
   let file = event.target.files[0];
   let reader = new FileReader();
   reader.onload = function () {
@@ -262,7 +269,7 @@ fileInput.addEventListener("change", function (event) {
 
       let alpha_value = 1.1;
       let beta_value = 15;
-      let adjust =adjustContrast(gaussi, alpha_value, beta_value);
+      let adjust = adjustContrast(gaussi, alpha_value, beta_value);
       let ou = otsu(adjust);
       let th = thresholdImage(adjust, ou);
 
@@ -282,15 +289,11 @@ fileInput.addEventListener("change", function (event) {
     if (hiddenContent.style.display === "none") {
       hiddenContent.style.display = "block";
       this.textContent = "Hide Content";
-    } else {
-      hiddenContent.style.display = "none";
-      this.textContent = "Show Content";
     }
     window.scrollTo(0, document.body.scrollHeight);
   };
   reader.readAsDataURL(file);
-});
-
+}
 // Function to download the grayscale image
 function downloadImage() {
   let imageAfter = document.getElementById("image-after");
@@ -306,4 +309,3 @@ function downloadImage() {
 document.getElementById("download-btn").addEventListener("click", function () {
   downloadImage();
 });
-
