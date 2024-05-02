@@ -1,7 +1,7 @@
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto");
-@import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&family=Cairo:wght@200..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&family=Cairo:wght@200..1000&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&family=Cairo:wght@200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&family=Cairo:wght@200..1000&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -10,22 +10,12 @@
 }
 
 body {
-
-  
   font-family: "Cairo", sans-serif;
   font-optical-sizing: auto;
   font-weight: 40px;
-  
-  background: -webkit-linear-gradient(
-    to right,
-    #ffffff,
-    #ffefba
-  ); 
-  background: linear-gradient(
-    to right,
-    #ffffff,
-    #fce28f
-  ); 
+
+  background: -webkit-linear-gradient(to right, #ffffff, #ffefba);
+  background: linear-gradient(to right, #ffffff, #fce28f);
 }
 
 .navbar {
@@ -43,22 +33,21 @@ body {
 }
 
 .logo {
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  width: 200px; 
-  height: 50px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
   border-radius: 5px;
 }
 
 .logo a {
-  text-decoration: none; 
-  color: #333; 
-  font-size: 20px; 
-  font-weight: bold; 
-  text-transform: uppercase; 
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
-
 
 .nav-menu {
   display: flex;
@@ -108,17 +97,9 @@ body {
 }
 
 .upload {
-  background: #ffefba; 
-  background: -webkit-linear-gradient(
-    to right,
-    #ffffff,
-    #ffefba
-  ); 
-  background: linear-gradient(
-    to right,
-    #ffffff,
-    #fce28f
-  ); 
+  background: #ffefba;
+  background: -webkit-linear-gradient(to right, #ffffff, #ffefba);
+  background: linear-gradient(to right, #ffffff, #fce28f);
 
   padding: 3rem;
   height: 100%;
@@ -139,7 +120,6 @@ h2 {
 .lea {
   font-size: 18px;
 }
-
 
 .uploader {
   padding: 20px;
@@ -286,8 +266,9 @@ h2 {
   width: 100%;
   align-items: center;
   padding: 50px;
-  justify-content: space-between; /* يضمن وجود مسافات متساوية بين العناصر */
-  align-items: center; 
+  justify-content: space-between;
+  /* يضمن وجود مسافات متساوية بين العناصر */
+  align-items: center;
 }
 
 .text {
@@ -304,10 +285,12 @@ h2 {
 .text h1 {
   font-size: xx-large;
 }
+
 h1 span {
   font-size: 35px;
   color: #aa4529a8;
 }
+
 p span {
   font-size: 25px;
   color: #aa4529;
@@ -316,14 +299,14 @@ p span {
 .button-65 {
   margin-top: 5%;
   margin-right: 3%;
-  font-size:larger ;
+  font-size: larger;
   background-color: #ce8122;
   border-radius: 10px;
   border-style: none;
   color: #fff;
   cursor: pointer;
   height: 50px;
-  width:150px;
+  width: 150px;
   padding: 14px 30px;
   text-align: center;
 }
@@ -334,11 +317,10 @@ p span {
 
 .gallery {
   --g: 6px;
- 
 
   display: grid;
   width: 500px;
-  
+
   aspect-ratio: 1;
   grid: auto-flow 1fr / repeat(3, 1fr);
   gap: var(--g);
@@ -393,6 +375,10 @@ p span {
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: #333;
   color: #fff;
   text-align: center;
@@ -415,7 +401,7 @@ main {
 
 .main-container {
   width: 100%;
-  }
+}
 
 .containerimg {
   display: grid;
@@ -425,7 +411,7 @@ main {
   border-radius: 1rem;
   max-width: 60%;
   border: solid #ce8122 2px;
-  border-style:none ;
+  border-style: none;
   border-radius: 20px;
 }
 
@@ -490,7 +476,7 @@ main {
   justify-content: center;
   background-color: #ce8122;
   border-radius: 10px;
-  border-style:none ;
+  border-style: none;
   color: #fffdfd;
 }
 

@@ -1,120 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="i.css" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="img/logo.jpg" type="image/jpg" />
 </head>
 
-<body>
+<body onload="loadContent('Pages/main.html')">
   <nav class="navbar">
     <div class="navbar-container">
       <div class="logo">
-        <a href="#"> doucemant evo</a>
+        <a href="#">doucemant evo</a>
       </div>
       <ul class="nav-menu" id="nav-menu">
-        <li class="nav-item"><a href="#" class="nav-link">الرئيسية</a></li>
         <li class="nav-item">
-          <a href="#" class="nav-link">سياسة الخصوصية</a>
+          <a href="#" class="nav-link" onclick="loadContent('Pages/main.html')">الرئيسية</a>
         </li>
-        <li class="nav-item"><a href="#" class="nav-link">عن الموقع</a></li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" onclick="loadContent('Pages/privacy.html')">سياسة الخصوصية</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" onclick="loadContent('Pages/about.html')">عن الموقع</a>
+        </li>
       </ul>
-      <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
     </div>
   </nav>
+  <div id="content-container">
 
-  <div class="consic">
-    <div class="text">
-      <h1> عالج صور <span >المستندات التالفة </span> مجانا خلال ثوان</h1>
-      <p>
-        نحن هنا لتوفير حلول مبتكرة وفعالة لمشاكل صور المستندات التالفة. إذا
-        كنت تعاني من مستندات تالفة أو غير واضحة، فإننا نقدم أدوات وتقنيات
-        تحويل متقدمة 
-        <br> <span >لتحسين جودة الصور وجعلها قابلة للقراءة والاستخدام بشكل
-        فعال.</span> 
-      </p>
-      <button type="button" class="button-65" onclick="scrollToBottom()">جربه الان</button>
-    </div>
-
-    <div class="gallery">
-      <img src="img/1.jpeg" class="imd1" alt="" data-original-src="img/1.jpeg" />
-      <img src="img/2.jpeg" class="imd2" alt="" data-original-src="img/2.jpeg" />
-      <img src="img/3.jpg" class="imd3" alt="" data-original-src="img/3.jpg" />
-      <img src="img/4.jpg" class="imd4" alt="" data-original-src="img/4.jpg" />
-    </div>
   </div>
-  <hr />
-  <div class="upload">
-    <p class="lea ha-p ">
-      نؤكد على خصوصية معلوماتك وصورك، حيث تتم عملية المعالجة باستخدام إمكانيات
-      متصفحك المدمجة دون إرسال الصور لخوادم خارجية. استفد من خدماتنا المجانية
-      بثقة وراحة بال.
-    </p>
-
-    <!-- Upload  -->
-
-    <img id="file-image" src="#" alt="Preview" class="hidden" />
-    <form id="file-upload-form" class="uploader">
-      <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
-      <label for="file-upload" id="file-drag">
-        <div id="start">
-          <span id="file-upload-btn" class="btn btn-primary">اختر صورة</span>
-        </div>
-        <div id="response" class="hidden">
-          <div id="messages"></div>
-        </div>
-      </label>
-      <div class="fhed">
-      <input id="image-capture" type="file" name="fileUpload" accept="image/*" capture="environment" />
-      <label for="image-capture" id="file-drag">
-        <div id="start">
-          <span id="file-upload-btn" class="btn btn-primary">التقط صورة</span>
-        </div>
-        <div id="response" class="hidden">
-          <div id="messages"></div>
-        </div>
-      </label>
-    </div>
-    </form>
-  </div>
-
-  <div id="hiddenContent" style="display: none">
-    <main>
-      <div class="containerimg">
-        <div class="image-container">
-          <img class="image-before slider-image" id="image-before" src="" alt="color photo" />
-          <img class="image-after slider-image" id="image-after" src="" alt="black and white" />
-        </div>
-        <!-- step="10" -->
-        <input type="range" min="0" max="100" value="50" aria-label="Percentage of before photo shown" class="slider" />
-        <div class="slider-button" aria-hidden="true">
-          <svg width="20" height="20"></svg>
-        </div>
-      </div>
-    </main>
-    <div class="asd">
-      <button id="download-btn" class="btn btn-primary">
-        Download Grayscale Image
-      </button>
-    </div>
-  </div>
-
-  <hr />
   <footer>
     <div class="footer-content">
       <p>Developed by Hassan Shahid, Ibrahim Ahmed, and Mehmeen Essam</p>
       <p>Supervised by Dr. Ekhlas</p>
     </div>
   </footer>
-  <script src="i.js"></script>
-  <script></script>
+  <script src="script.js"></script>
+  <script>
+    function loadContent(page) {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("content-container").innerHTML =
+            xhr.responseText;
+        }
+      };
+      xhr.open("GET", page, true);
+      xhr.send();
+    }
+  </script>
 </body>
-
 </html>
