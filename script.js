@@ -22,7 +22,6 @@ images.forEach((image) => {
     image.src = image.getAttribute("data-original-src");
   });
 });
-
 function scrollToBottom() {
   const bottomElement = document.body.scrollHeight;
 
@@ -97,7 +96,7 @@ function enhanceImageResolution(imageData) {
   let enhancedImageData = new ImageData(
     new Uint8ClampedArray(sharpenedPixels),
     imageWidth,
-    imageHeight
+    imageHeight,
   );
   return enhancedImageData;
 }
@@ -303,6 +302,7 @@ function processImage(event) {
   };
   reader.readAsDataURL(file);
 }
+// Function to download the grayscale image
 function downloadImage() {
   let imageAfter = document.getElementById("image-after");
   let downloadLink = document.createElement("a");
@@ -313,6 +313,7 @@ function downloadImage() {
   document.body.removeChild(downloadLink);
 }
 
+// Add event listener to the download button
 document.getElementById("download-btn").addEventListener("click", function () {
   downloadImage();
 });
