@@ -1,5 +1,7 @@
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&family=Cairo:wght@200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&family=Cairo:wght@200..1000&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -8,8 +10,12 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #ffefba; 
+
+  
+  font-family: "Cairo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 40px;
+  
   background: -webkit-linear-gradient(
     to right,
     #ffffff,
@@ -37,10 +43,22 @@ body {
 }
 
 .logo {
-  padding: 0px;
-  margin: 0px;
-  width: 2em;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  width: 200px; 
+  height: 50px; 
+  border-radius: 5px;
 }
+
+.logo a {
+  text-decoration: none; 
+  color: #333; 
+  font-size: 20px; 
+  font-weight: bold; 
+  text-transform: uppercase; 
+}
+
 
 .nav-menu {
   display: flex;
@@ -109,7 +127,6 @@ body {
 }
 
 .ha-p {
-  font-family: "Roboto", sans-serif;
   padding: 30px;
 }
 
@@ -245,7 +262,6 @@ h2 {
   display: inline-block;
   margin: 0.5rem 0.5rem 1rem 0.5rem;
   clear: both;
-  font-family: inherit;
   font-weight: 700;
   font-size: 14px;
   text-decoration: none;
@@ -259,17 +275,8 @@ h2 {
   color: #fff;
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
-  background: #ff8008; 
-  background: -webkit-linear-gradient(
-    to right,
-    #ffc837,
-    #ff8008
-  ); 
-  background: linear-gradient(
-    to right,
-    #ffc837,
-    #ff8008
-  );
+  background-color: #ce8122;
+
   cursor: pointer;
 }
 
@@ -277,9 +284,10 @@ h2 {
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
-  justify-content: center;
   align-items: center;
   padding: 50px;
+  justify-content: space-between; /* يضمن وجود مسافات متساوية بين العناصر */
+  align-items: center; 
 }
 
 .text {
@@ -294,9 +302,34 @@ h2 {
 }
 
 .text h1 {
-  font-weight: bold;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: xx-large;
+}
+h1 span {
+  font-size: 35px;
+  color: #aa4529a8;
+}
+p span {
+  font-size: 25px;
+  color: #aa4529;
+}
+
+.button-65 {
+  margin-top: 5%;
+  margin-right: 3%;
+  font-size:larger ;
+  background-color: #ce8122;
+  border-radius: 10px;
+  border-style: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  width:150px;
+  padding: 14px 30px;
+  text-align: center;
+}
+
+.button-65:hover {
+  background-color: #8f4008;
 }
 
 .gallery {
@@ -363,7 +396,7 @@ footer {
   background-color: #333;
   color: #fff;
   text-align: center;
-  padding: 10px 0;
+  padding: 0px 0;
   bottom: 0;
   width: 100%;
 }
@@ -382,8 +415,7 @@ main {
 
 .main-container {
   width: 100%;
-  background: red;
-}
+  }
 
 .containerimg {
   display: grid;
@@ -392,7 +424,8 @@ main {
   overflow: hidden;
   border-radius: 1rem;
   max-width: 60%;
-  border: solid rgb(184, 163, 122) 2px;
+  border: solid #ce8122 2px;
+  border-style:none ;
   border-radius: 20px;
 }
 
@@ -455,8 +488,9 @@ main {
   margin-bottom: 50px;
   display: flex;
   justify-content: center;
-  background-color: #ca9447;
+  background-color: #ce8122;
   border-radius: 10px;
+  border-style:none ;
   color: #fffdfd;
 }
 

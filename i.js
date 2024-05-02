@@ -23,6 +23,17 @@ images.forEach((image) => {
   });
 });
 
+function scrollToBottom() {
+  // تحديد عنصر نهاية الصفحة (يمكن أن يكون العنصر الأخير في الصفحة)
+  const bottomElement = document.body.scrollHeight;
+
+  // التمرير إلى نهاية الصفحة
+  window.scrollTo({
+    top: bottomElement,
+    behavior: 'smooth' // لتمرير بشكل سلس
+  });
+}
+
 // دالة لتحويل الصورة إلى رمادي
 function rgbToGray(imageData) {
   const data = imageData.data;
